@@ -1,0 +1,47 @@
+---
+title: React Fundamentals
+notebook: Programming
+tags:react 
+---
+
+# When considering how to use a new tool- ask yourself following 2 questions:
+
+1. Why does this thing exist?
+2. What problem does this solve?
+
+* __Webpack is a bundler that you can tell every conversion step for our code__
+
+## What does webpack need to know?
+
+1. Starting point of your application (root JS file)
+
+2. What transformations to make on code
+
+3. Location to save new code
+
+##  how to do this in webpack.config.js in root project directory
+
+```javascript
+module.exports = {
+  // tell webpack entry point of your app
+  entry: ['./app/index.js'],
+
+  // tell webpack which transformations to do
+  module: {
+    loaders: [
+      {test: /\.coffee$/, exclude: /node_modules/, loader: "coffee-loader"}
+    ]
+  },
+
+  // tell webpack where to output file
+  output: {
+    filename: "index_bundle.js",
+    path: __dirname + '/dist'
+  },
+}
+```
+
+## use html-webpack-plugin package to make sure index.html in transformed dist/ directory matches the one in app/ folder
+
+` npm install --save-dev html-webpack-plugin`
+

@@ -1,0 +1,21 @@
+---
+title: Babel.js
+notebook: Programming
+tags:react
+---
+
+Babel.js is a wonderful tool for compiling your JavaScript. With Webpack you tell it which transformations to make on your code, while Babel is the specific transformation itself. In terms of React, Babel is going to allow us to transform our JSX (which you'll see soon) into actual JavaScript. What's nice about Babel though is it can be used for much more than just JSX -> JS transformations. You can also opt into "future" versions of JavaScript (ES2015, 2016, etc) and use Babel to transform your future JavaScript to modern day JavaScript so the browser can understand it. Let's jump into what this looks like.
+
+* JSX is react flavor of JavaScript
+
+Example .babelrc file
+```javascript
+{
+  "presets": [
+    "react"
+  ]
+}
+```
+
+
+

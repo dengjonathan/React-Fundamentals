@@ -1,0 +1,45 @@
+---
+title: React Components
+notebook: Programming
+tags:react
+---
+
+Components are building blocks of React- basically JS modules
+
+
+Components can be nested in parent components and child components
+  The 'state' data lives in parent component and is passed to child component as an attribute
+
+Rendering the parent component in REact should render all the child components as well.
+
+```javascript
+var React = require('react')
+var ReactDOM = require('react-dom')
+var HelloWorld = React.createClass({
+  // each component needs render function that creates template
+  render: function(){
+    return (
+      <div>
+        Hello World!
+      </div>
+    )
+  }
+});
+
+// render method takes 2 args, component and DOM node to render component in
+// <HelloWorld /> is the React component we woant to run
+ReactDOM.render(<HelloWorld />, document.getElementById('app'));
+```
+Example React component
+
+React creates a virtual DOM using Javascript objects to represent the real HTML DOM.
+Then React can compute changes between the virtual and actual DOM, isolates the changes and only
+updates the DOM with the necessary changes.
+
+React will re-render the virtual DOM anytime something in the applications state changes.
+
+The process looks something like this,
+
+Signal to notify our app some data has changed→ Re-render virtual DOM -> Diff previous virtual DOM with new virtual DOM -> Only update real DOM with necessary changes.
+
+* main point of a React component is what UI it returns (the JSX node that will get transpile to javascript and placed in the DOM)
