@@ -1,0 +1,110 @@
+---
+title: React Props
+notebook: Programming
+tags:react
+---
+
+* React is really good at managing state- passes data from parent component to child component
+
+* Data is passed from one component to another using _props_
+
+```javascript
+var HelloUser = React.createClass({
+  render: function(){
+    return (
+      // React can access name through this.props.name
+      <div> Hello, {this.props.name}</div>
+    )
+  }
+});
+// pass in name property
+ReactDOM.render(<HelloUser name="Tyler"/>, document.getElementById('app'));
+```
+
+This example shows properties being stored within the class
+
+```javascript
+var FriendsContainer = React.createClass({
+  render: function(){
+    var name = 'Tyler McGinnis'
+    var friends = ['Ean Platter', 'Murphy Randall', 'Merrick Christensen']
+    return (
+      <div>
+        <h3> Name: {name} </h3>
+        <ShowList names={friends} />
+      </div>
+    )
+  }
+});
+```
+* properties within a component are accessible by their child components
+
+
+# React UIs
+
+React is just functions that take in some arguments, and instead of returning a value, create new React
+components
+
+* This example uses differnt react components to create one Avatar parent component
+
+```
+ var ProfilePic = React.createClass({
+   render: function() {
+     return (
+      // <img src={'https://photo.fb.com/' + this.props.username} />
+     )
+   }
+ })
+ var ProfileLink = React.createClass({
+   render: function() {
+     return (
+       <a href={'https://www.fb.com/' + this.props.username}>
+         {this.props.username}
+       </a>
+     )
+   }
+ })
+ var Avatar = React.createClass({
+   render: function() {
+     return (
+       <div>
+         <ProfilePic username={this.props.username} />
+         <ProfileLink username={this.props.username} />
+       </div>
+     )
+   }
+ })
+ // this is a call to the Avatar component with argument username = 'tylermcginnis'
+ <Avatar username="tylermcginnis" />
+```
+
+* Same output using Stateless Functional Components pattern which allows code to be written using normal functions
+```
+
+ var ProfilePic = function (props) {
+   // return <img src= {'https://photo.fb.com/' + props.username} />
+ }
+ var ProfileLink = function (props) {
+   return (
+     <a href={'https://www.fb.com/' + props.username}>
+       {props.username}
+     </a>
+   )
+ }
+ var Avatar = function (props) {
+   return (
+     <div>
+       <ProfilePic username={props.username} />
+       <ProfileLink username={props.username} />
+     </div>
+   )
+ }
+ <Avatar username="tylermcginnis" />
+ ```
+
+ * React components are "pure functions" that are useful in the FP paradigm:
+ 1. Pure functions always return same result with same arguments
+ 2. Pure function's execution doesn't depend on state
+ 3. Pure functions don't modify variables outside their scope
+
+ * React render methods **need** to be pure functions. React makes you a better developer if you work on making functions pure and push side effects to boundaries of your program
