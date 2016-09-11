@@ -1,0 +1,19 @@
+---
+title: React Life Cycle Events
+notebook: Programming
+tags:react
+---
+
+React components need to have a render method that is a *pure function*, meaning that the render method
+  * can't have an state
+  * can't make AJAX requests
+  * should just recieve state/ props as arguments passed to the component and render UI
+
+So how does react do all the things an app needs to be able to do?
+
+Life Cycle methods are special methods each component can have that allow us to update views when specific conditions happen.
+
+Life Cycle mthods in 2 categories:
+1. When component mounted/unmounted to DOM
+2. When a compnent recieves updated state data
+
