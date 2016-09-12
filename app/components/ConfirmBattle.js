@@ -2,6 +2,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var transparentBg = require('../styles').transparentBg;
 var Link = require('react-router').Link
+var UserDetails = require('../components/UserDetails');
 
 
 function puke(object) {
@@ -14,9 +15,15 @@ function ConfirmBattle (props) {
       <div className="jumbotron col-sm-12 text-center" style={transparentBg}>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>
-        {puke(props.players[0])}
-        {puke(props.players[1])}
+          <div className='col-sm-6'>
+            <p className='lead'> Player 1</p>
+              <UserDetails info={props.players[0]} />
+          </div>
+          <div className='col-sm-6'>
+            <p className='lead'> Player 2</p>
+              <UserDetails info={props.players[1]} />
         </div>
+      </div>
         <div className='col-sm-8 col-sm-offset-2'>
           <div className='col-sm-12'>
             <button type='button' className='btn btn-lg btn-success' onClick={props.onInitBattle}>Initiate Battle!</button>
