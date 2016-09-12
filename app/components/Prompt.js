@@ -1,7 +1,6 @@
 var React = require('react');
 var transparentBg = require('../styles').transparentBg;
 var PropTypes = React.PropTypes;
-
 // MAKING COMPONENT THE NOMRMAL WAY
 // var Prompt = React.createClass({
 //   // this attribute allows use to require certain propTypes for our component
