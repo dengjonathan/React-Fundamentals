@@ -3,12 +3,25 @@ var PropTypes = React.PropTypes;
 var styles = require('../styles');
 var UserDetails = require('./UserDetails');
 var UserDetailsWrapper = require('./UserDetailsWrapper');
+var Link = require('react-router').Link
 
-function puke(object) {
-  return <pre>{JSON.stringify(object, null, ' ')}</pre>;
+function StartOver() {
+  return (
+    <div className='col-sm-12' style={styles.space}>
+     <Link to='/playerOne'>
+        <button type='button' className='btn btn-lg btn-danger'>Start Overs </button>
+     </Link>
+    </div>
+  );
 }
 
 function Results(props) {
+  if (props.scores[0] === props.scores[1]) {
+    <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+      <h1>It's a tie</h1>
+      <StartOver />
+    </div>
+  }
   var winningInd = props.scores[0] > props.scores[1] ? 0 : 1
   var losingInd = winningInd === 0 ? 1 : 0;
   return (
@@ -28,6 +41,7 @@ function Results(props) {
           />
         </UserDetailsWrapper>
       </div>
+      <StartOver />
     </div>
   );
 }
