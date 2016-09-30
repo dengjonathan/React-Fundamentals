@@ -14,7 +14,7 @@ function getScore(player) {
   var followers;
   // get player repos from gitHub API
   getUserInfo(player) // should return promise
-  // .then get number of stars/ followers
+    // .then get number of stars/ followers
     .then(function(response) {
       stars = response.followers;
       followers = response.followers;
@@ -40,8 +40,8 @@ function calcScore(stars, followers) {
 var helpers = {
   getPlayersInfo: function(players) {
     return axios.all(players.map(function(username) {
-      return getUserInfo(username);
-    }))
+        return getUserInfo(username);
+      }))
       .then(function(info) {
         return info.map(function(each) {
           return each.data;
@@ -60,3 +60,5 @@ var helpers = {
 };
 
 module.exports = helpers;
+
+//
